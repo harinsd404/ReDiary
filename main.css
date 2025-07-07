@@ -1,0 +1,61 @@
+* {
+    text-decoration-line: none;
+}
+body{
+    background-image: url(./assets/background.svg);
+    background-position: center;
+    background-size: cover;
+    width: 100vw;
+    height: 100vh;
+}
+#container {
+    width: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-items: center;
+}
+
+.logo {
+    width: 607.86px;
+    height: 240px;
+    margin-bottom: 104px;
+}
+.btn_area{
+    display: flex;
+    padding: 0px 284px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+    align-self: stretch;
+    margin-bottom: 94px;
+}
+.btn_area button {
+    padding: 32px 88px;
+    border-radius: 22px;
+    border: 2px solid #000;
+    align-self: stretch;
+    background: linear-gradient(to bottom, #FFFFFF, #FBFFAB);
+
+    color: #000;
+    text-align: center;
+    font-family: "PF Stardust ExtraBold";
+    
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+}
+
+.btn_area :hover {
+    position: relative;
+}
+.btn_area :hover::after {
+    content: "";
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 22px;
+}
