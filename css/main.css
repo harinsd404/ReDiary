@@ -23,33 +23,40 @@ body{
 .logo {
     width: 607.86px;
     height: 240px;
-    margin: 8vh 0 104px 0;
+    margin: 8vh 0 154px 0;
 }
 .btn_area{
     display: flex;
-    padding: 0px 284px;
+    width: 100%;
+    padding: 0px 320px;
     flex-direction: column;
     align-items: flex-start;
     gap: 20px;
     align-self: stretch;
     margin-bottom: 94px;
+    box-sizing: border-box;
 }
-.btn_area button {
-    padding: 32px 88px;
-    border-radius: 22px;
-    border: 2px solid #000;
+button {
     align-self: stretch;
-    background: linear-gradient(to bottom, #FFFFFF, #FBFFAB);
-}
-.btn_area button a {
+    background: linear-gradient(0deg, #FBFFAB 0%, #FFF 100%);
+    border: 2px solid #000;
+    border-radius: 22px;
     color: #000;
     text-align: center;
     font-family: "PF Stardust ExtraBold";
     
-    font-size: 40px;
     font-style: normal;
     font-weight: 800;
     line-height: normal;
+}
+.home_btn button {
+    display: flex;
+    padding: 32px 0px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    align-self: stretch;
+    font-size: 36px;
 }
 
 .btn_area :hover {
