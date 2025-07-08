@@ -1,6 +1,10 @@
 * {
     text-decoration-line: none;
 }
+button {
+    background: none;
+    border: none;
+}
 body{
     background-image: url(../assets/background.svg);
     background-position: center;
