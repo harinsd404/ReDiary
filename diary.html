@@ -11,7 +11,7 @@
 <body>
     <div id="container">
         <div class="icon">
-            <button>
+            <button onclick="history.back();">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="38" viewBox="0 0 24 38" fill="none">
                 <path d="M22 2L2 17.8276L22 36" stroke="black" stroke-opacity="0.68" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
@@ -19,7 +19,17 @@
             
         </div>
         <div class="main">
-            <h4>아직 일기가 작성되지 않았습니다</h4>
+            <!--<h4>아직 일기가 작성되지 않았습니다</h4>-->
+            <div class="diary">
+                <div class="head">
+                    <h6 class="title">제목: </h6>
+                <button>날씨: 맑음</button>
+                </div>
+                <div class="contents"></div>
+                <div class="date">
+                    <p>2025년 07월 02일 22:05:11</p>
+                </div>
+            </div>
         </div>
         <div class="btn_area">
             <button>다음으로</button>
