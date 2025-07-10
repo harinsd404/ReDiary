@@ -4,6 +4,21 @@
 button {
     background: none;
     border: none;
+
+    align-self: stretch;
+    background: linear-gradient(0deg, #FBFFAB 0%, #FFF 100%);
+    border: 2px solid #000;
+    border-radius: 22px;
+    color: #000;
+    text-align: center;
+    font-family: "PF Stardust ExtraBold";
+    
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+}
+button :hover {
+    cursor: pointer;
 }
 body{
     background-image: url(../assets/background.svg);
@@ -36,19 +51,7 @@ body{
     margin-bottom: 94px;
     box-sizing: border-box;
 }
-button {
-    align-self: stretch;
-    background: linear-gradient(0deg, #FBFFAB 0%, #FFF 100%);
-    border: 2px solid #000;
-    border-radius: 22px;
-    color: #000;
-    text-align: center;
-    font-family: "PF Stardust ExtraBold";
-    
-    font-style: normal;
-    font-weight: 800;
-    line-height: normal;
-}
+
 .home_btn button {
     display: flex;
     padding: 32px 0px;
@@ -68,5 +71,4 @@ button {
     top: 0; left: 0;
     width: 100%; height: 100%;
     background: rgba(0, 0, 0, 0.08);
-    border-radius: 22px;
 }
