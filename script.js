@@ -1,13 +1,13 @@
 /* 날씨 버튼 눌렀을 때 값이 바뀜 */
 const whetherList = ['맑음', '흐림', '비'];
-const letter = {
+const whether = document.querySelector('.whether')
+
+let diaryData = {
     /*'title': '제목',
     'whether': whether[0],
     'diaryWrite': 'write',
     'date': '2025년 07월 02일 22:05:11',*/
 };
-const whether = document.querySelector('.whether')
-
 
 whether.addEventListener('click', ()=>{
     console.log('click');
@@ -26,13 +26,17 @@ whether.addEventListener('click', ()=>{
 
 
 document.querySelector('.write').addEventListener('click', (e) => {
-    e.preventDefault;
+    e.preventDefault();
 
-    const title = document.querySelector('.who');
-    const whether = document.querySelector('.letter');
-    const diaryWrite = document.querySelector()
-
-    
+    if (frm.title.value.trim() === '') {
+        frm.title.focus();
+        alert('제목을 작성해 주세요.');
+        return;
+    } else if(frm.contents.value.trim() === ''){
+        frm.contents.focus();
+        alert('일기를 작성해 주세요.');
+        return;
+    }
 
     let today = new Date(); 
     
@@ -44,10 +48,11 @@ document.querySelector('.write').addEventListener('click', (e) => {
     
     const date = `${year}-${month}-${day} ${hours}:${minutes}`;
     console.log(date);
-    letterData.push({whoData: who.value.trim(), letterData: letter.value.trim(), dateData: date});
-    who.value = ``;
-    letter.value = ``;
+
+    diaryData.push({title: frm.title.value.trim(), whetherData: frm.whether.value, contents: frm.contents.value.trim(), dateData: date});
+    frm.title.value = ``;
+    frm.contents.value = ``;
     
-    localStorage.setItem('letterData', JSON.stringify(letterData));
-    window.location = './letter-page.html';
+    localStorage.setItem('diaryData', JSON.stringify(diaryData));
+    console.log(diaryData);
 });

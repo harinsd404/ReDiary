@@ -23,11 +23,11 @@
             <form name="frm">
                 <div class="diary">
                     <div class="head">
-                        <label for="" class="title">제목:<input type="text" class="title"></label>
+                        <label for="" class="title">제목:<input type="text" class="title" name="title"></label>
                         <input class="whether" type="button" value="날씨: 맑음">
                     </div>
                     <div class="contents">
-                        <textarea class="lined diaryWrite" placeholder="오늘의 일기를 작성해주세요."></textarea>
+                        <textarea class="lined diaryWrite" placeholder="오늘의 일기를 작성해주세요." name="diaryWrite"></textarea>
                         <div class="line">
                             
                         </div>
@@ -38,7 +38,7 @@
                 </div>
             </div>
             <div class="btn_area">
-                <input type="submit" value="일기쓰기">
+                <input type="submit" value="일기쓰기" class="write">
             </div>
         </form>
     </div>
