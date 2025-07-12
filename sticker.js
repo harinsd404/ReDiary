@@ -12,43 +12,40 @@ function rendStickerPage(){
     stickerList.forEach(item => {
         if (item.hands === true) {
             stickersContainer.insertAdjacentHTML('beforeend',
-                `<img src="./assets/sticker/${item.name}.png" alt="${item.title}" class="sticker-item">`
+                `<img src="./assets/sticker/${item.name}.png" alt="${item.title}" class="sticker-item" data-sticker-name="${item.name}">`
             );
         } else {
             stickersContainer.insertAdjacentHTML('beforeend',
-                `<img src="./assets/sticker/question.png" alt="미획득 스티커" class="sticker-item">`
+                `<img src="./assets/sticker/question.png" alt="미획득 스티커" class="sticker-item" data-sticker-name="question">`
             );
         }
     });
 }
 rendStickerPage();
 
+// 이벤트 위임을 사용하여 스티커 클릭 이벤트 처리
 document.getElementById('stickers').addEventListener('click', (e) => {
-    let targetData;
-    for(let data of stickerList){
-        if (data.title == e.target.alt)
-            targetData = data;
-    }
-        
     if (e.target.classList.contains('sticker-item')) {
-        console.log('click'); 
-        console.log('스티커 클릭됨:', e.target.alt);        
-        document.getElementById('sticker').innerHTML = `
-        <div class="glare-card">
-            <div class="glare-card-inner">
-                <div class="card-content">
-                    <img src="./assets/sticker/${targetData.name}.png" alt="" style="width: 100%; height: 100%; object-fit: contain;">
-                </div>
-                <div class="glare-layer"></div>
-                <div class="foil-layer"></div>
-            </div>
-        </div>
-        <div class="sticker-text">
-            <h3>${targetData.title}</h3>
-            <p>아무 곳이나 Tab</p>
-        </div>`;
-        document.getElementById('sticker').style.display = 'flex';
+        const clickedStickerName = e.target.dataset.stickerName; 
+        const clickedStickerData = stickerList.find(sticker => sticker.name === clickedStickerName);
+
+        if (clickedStickerData) {
+            // 스티커 오버레이 내용 업데이트 (innerHTML 대신 요소 속성 변경)
+            document.querySelector('#sticker .glare-card img').src = `./assets/sticker/${clickedStickerData.name}.png`;
+            document.querySelector('#sticker .sticker-text h3').textContent = clickedStickerData.title;
+            document.querySelector('#sticker .sticker-text p').textContent = '아무 곳이나 Tab'; // 고정 텍스트
+            
+            document.getElementById('sticker').style.display = 'flex';
+
+            console.log('클릭된 스티커 데이터:', clickedStickerData);
+        } else {
+            console.log('클릭된 스티커 데이터를 찾을 수 없습니다.');
+        }
     }
+});
+
+document.getElementById('sticker').addEventListener('click', ()=>{
+    document.getElementById('sticker').style.display = 'none';
 });
 
 document.getElementById('sticker').addEventListener('click', ()=>{
