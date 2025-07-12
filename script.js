@@ -1,12 +1,19 @@
 const whetherList = ['맑음', '흐림', '비'];
 const whether = document.querySelector('.whether');
 
+// stickerList를 로컬 스토리지에서 불러오거나, 없으면 기본 목록 사용
+let stickerList = JSON.parse(localStorage.getItem('stickerList')) || [
+    {name:'clover', title:'행운의 네잎 클로버', hands: false},
+    {name:'tomato', title:'행운의 토마토', hands: false},
+    {name:'star', title:'행운의 별', hands: false},
+    {name:'latte', title:'라떼', hands: false}
+];
+
 let diaryData = JSON.parse(localStorage.getItem('diaryData')) || [];
 
 whether.addEventListener('click', () => {
     const currentValue = whether.value.replace('날씨: ', '');
     const currentIndex = whetherList.indexOf(currentValue);
-    // 다음 인덱스를 계산, 배열의 끝에 도달하면 0으로 순환
     const nextIndex = (currentIndex + 1) % whetherList.length;
     whether.value = '날씨: ' + whetherList[nextIndex];
 });
@@ -37,21 +44,41 @@ document.querySelector('.write').addEventListener('click', (e) => {
 
     diaryData.push({
         title: frm.title.value.trim(),
-        weatherData: whether.value, // 'wheterData' 오타 수정
+        weatherData: whether.value,
         contents: frm.contents.value.trim(),
         dateData: date
     });
 
     localStorage.setItem('diaryData', JSON.stringify(diaryData));
-    console.log('저장된 데이터:', diaryData);
+    console.log('저장된 일기 데이터:', diaryData);
 
-    // 스티커 오버레이 표시
-    document.getElementById('sticker').style.display = 'flex';
+    let foundSticker = null;
+    for (let i = 0; i < stickerList.length; i++) {
+        if (stickerList[i].hands === false) {
+            foundSticker = stickerList[i];
+            stickerList[i].hands = true;
+            break; 
+        }
+    }
+
+    if (foundSticker) {
+        document.querySelector('#sticker .glare-card img').src = `./assets/sticker/${foundSticker.name}.png`;
+        document.querySelector('#sticker .sticker-text h3').textContent = foundSticker.title;
+        document.querySelector('#sticker .sticker-text p').textContent = '아무 곳이나 Tab';
+        document.getElementById('sticker').style.display = 'flex';
+
+        localStorage.setItem('stickerList', JSON.stringify(stickerList));
+        console.log('업데이트된 스티커 목록 (로컬 스토리지 저장됨):', stickerList);
+
+    } else {
+        console.log('더 이상 받을 수 있는 스티커가 없습니다.');
+        document.getElementById('sticker').style.display = 'none';
+        history.before();
+    }
 });
 
-// 스티커 오버레이 클릭 시 숨기기 및 페이지 이동
+
 document.getElementById('sticker').addEventListener('click', ()=>{
     document.getElementById('sticker').style.display = 'none';
-    // 일기 목록 페이지로 이동하거나, 원하는 다른 동작을 추가할 수 있습니다.
-    window.location.href = 'diary.html'; 
+    history.before(); 
 });

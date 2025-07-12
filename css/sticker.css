@@ -115,10 +115,81 @@
     opacity: 0.9;
 }
 
-.demo-grid {
+#sticker_main {
+    max-width: 960px; 
+    margin: 0 auto; 
+    padding: 40px;
+    text-align: center;
+}
+
+h4 {
+    font-family: "PF Stardust ExtraBold";
+    font-size: 26px;
+    margin-bottom: 40px;
+}
+
+.stickers {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 40px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px; 
+    justify-items: center;
+}
+
+.stickers img {
     width: 100%;
-    max-width: 1200px;
+    max-width: 300px;
+    height: auto;
+    aspect-ratio: 1/1;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+.stickers img:hover{
+    transform: scale(1.1);
+}
+
+
+#sticker {
+    position: fixed; /* 뷰포트 기준 고정 */
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 99;
+    flex-shrink: 0;
+    background: rgba(0, 0, 0, 0.40);
+    backdrop-filter: blur(2px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 28px;
+
+    color: #fff;
+    font-family: "PF Stardust";
+    display: none;
+}
+#sticker h3 {
+    color: #fff;
+    font-family: "PF Stardust ExtraBold";
+}
+#sticker :hover{
+    cursor: pointer;
+}
+
+.sticker-text {
+    text-align: center;
+    color: white;
+    margin-top: 20px;
+}
+
+.sticker-text h3 {
+    font-family: "PF Stardust ExtraBold";
+    font-size: 24px;
+    margin: 0 0 10px 0;
+}
+
+.sticker-text p {
+    font-family: "PF Stardust";
+    font-size: 16px;
+    margin: 0;
 }
