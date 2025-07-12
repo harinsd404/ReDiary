@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rediary</title>
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="./css/diary.css">
+    <link rel="shortcut icon" href="./assets/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <div id="container">
+        <div class="icon">
+            <button onclick="history.back();">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="38" viewBox="0 0 24 38" fill="none">
+                <path d="M22 2L2 17.8276L22 36" stroke="black" stroke-opacity="0.68" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </button>
+            
+        </div>
+        <div class="main">
+            <!--<h4>아직 일기가 작성되지 않았습니다</h4>-->
+            <form name="frm">
+                <div class="diary">
+                    <div class="head">
+                        <label for="" class="title">제목:<input type="text" class="title" name="title"></label>
+                        <input class="whether" type="button" value="날씨: 맑음">
+                    </div>
+                    <div class="contents">
+                        <textarea class="lined diaryWrite" placeholder="오늘의 일기를 작성해주세요." name="contents"></textarea>
+                        <div class="line">
+                            
+                        </div>
+                    </div>
+                    <div class="date">
+                        <!--<p>2025년 07월 02일 22:05:11</p>-->
+                    </div>
+                </div>
+            </div>
+            <div class="btn_area">
+                <input type="submit" value="다음으로" class="write">
+            </div>
+        </form>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
