@@ -4,7 +4,7 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start; /* center에서 flex-start로 변경 */
     gap: auto;
 }
 /* 뒤로가기 아이콘 */
@@ -18,6 +18,7 @@
 .icon button {
     background: none;
     border: none;
+    position: fixed;
 }
 .icon button :hover{
     cursor: pointer;
@@ -33,7 +34,7 @@
     display: inline-flex;
     margin: 42px 0px;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center; /* 일기 목록 내부 아이템 중앙 정렬 */
     gap: 56px;
 }
 h4 {
@@ -147,13 +148,14 @@ h4 {
 
 /* 일기쓰기/다음으로 버튼 */
 .btn_area {
-    align-self: flex-end; /* 제일 아래 */
+    align-self: flex-end;
     padding: 0 88px 68px;
     width: auto;
     margin: 0;
+
 }
 
-.btn_area input{
+.btn_area .write{
     display: inline-flex;
     width: fit-content; /* 내용에 맞게 너비 조절 */
     padding: 10px 18px;
@@ -171,8 +173,12 @@ h4 {
     background: linear-gradient(0deg, #FBFFAB 0%, #FFF 100%);
     border: 2px solid #000;
     border-radius: 12px;
+    position: fixed;
 }
 
 .btn_area input:hover{
     cursor: pointer;
+}
+.btn_area button {
+    position: fixed;
 }

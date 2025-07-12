@@ -47,4 +47,6 @@ document.querySelector('.write').addEventListener('click', (e) => {
 
     localStorage.setItem('diaryData', JSON.stringify(diaryData));
     console.log('저장된 데이터:', diaryData);
+
+    
 });

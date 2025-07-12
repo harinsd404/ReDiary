@@ -12,20 +12,20 @@ function rendPage(){
         diaryData.forEach(item=>{
             main.insertAdjacentHTML('beforeend', `
                 <div class="diary">
-                <div class="head">
-                    <label for="" class="title">제목:<input type="text" class="title" value="${diaryData[title]}" readonly></label>
-                    <input class="whether" type="button" value="${diaryData[weatherData]}" readonly>
-                </div>
-                <div class="contents">
-                    <textarea class="lined diaryWrite" placeholder="오늘의 일기를 작성해주세요." value="${diaryData[contents]}" readonly></textarea>
-                    <div class="line">
-                        
+                    <div class="head">
+                        <label for="" class="title">제목:<input type="text" class="title" value="${item.title}" readonly></label>
+                        <input class="whether" type="button" value="${item.weatherData}" readonly>
+                    </div>
+                    <div class="contents">
+                        <textarea class="lined diaryWrite" placeholder="오늘의 일기를 작성해주세요." readonly>${item.contents}</textarea>
+                        <div class="line">
+                            
+                        </div>
+                    </div>
+                    <div class="date">
+                        <p>${item.dateData}</p>
                     </div>
                 </div>
-                <div class="date">
-                    <p>${diaryData[dateData]}</p>
-                </div>
-            </div>
             `);
         });
     }
