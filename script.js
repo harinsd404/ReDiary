@@ -68,10 +68,7 @@ document.querySelector('.write').addEventListener('click', (e) => {
         document.querySelector('#sticker .glare-card img').src = `./assets/sticker/${foundSticker.name}.png`;
         document.querySelector('#sticker .sticker-text h3').textContent = foundSticker.title;
         document.querySelector('#sticker .sticker-text p').textContent = '아무 곳이나 Tab';
-        
         document.getElementById('sticker').style.display = 'flex';
-        console.log('#sticker display 설정:', document.getElementById('sticker').style.display);
-
         localStorage.setItem('stickerList', JSON.stringify(stickerList));
         console.log('업데이트된 스티커 목록 (로컬 스토리지 저장됨):', stickerList);
 
