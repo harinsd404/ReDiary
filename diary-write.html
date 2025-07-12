@@ -22,7 +22,7 @@
         <form name="frm" class="main">
             <div class="diary">
                 <div class="head">
-                    <label for="" class="title">제목:<input type="text" class="title" name="title"></label>
+                    <label for="title" class="title">제목:<input type="text" class="title" name="title" id="title"></label>
                     <input class="whether" type="button" value="날씨: 맑음">
                 </div>
                 <div class="contents">
@@ -42,6 +42,19 @@
     </div>
 
     <div id="sticker">
+        <div class="glare-card">
+            <div class="glare-card-inner">
+                <div class="card-content">
+                    <img src="./assets/sticker/clover.png" alt="" style="width: 100%; height: 100%; object-fit: contain;">
+                </div>
+                <div class="glare-layer"></div>
+                <div class="foil-layer"></div>
+            </div>
+        </div>
+        <div class="sticker-text">
+            <h3>행운의 네잎 클로버</h3>
+            <p>아무 곳이나 Tab</p>
+        </div>
     </div>
     
     <script src="script.js"></script>
