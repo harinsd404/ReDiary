@@ -45,19 +45,13 @@ document.querySelector('.write').addEventListener('click', (e) => {
     localStorage.setItem('diaryData', JSON.stringify(diaryData));
     console.log('저장된 데이터:', diaryData);
 
-    document.getElementById('sticker').innerHTML = `
-        <img src="./assets/sticker/clover.png" alt="">
-        <div class="text">
-            <h3>행운의 네잎 클로버</h3>
-            <p>아무 곳이나 Tab</p>
-        </div>`;
+    // 스티커 오버레이 표시
     document.getElementById('sticker').style.display = 'flex';
 });
 
+// 스티커 오버레이 클릭 시 숨기기 및 페이지 이동
 document.getElementById('sticker').addEventListener('click', ()=>{
     document.getElementById('sticker').style.display = 'none';
-    history.back();
-
-    frm.title.value = '';
-    frm.contents.value = '';
+    // 일기 목록 페이지로 이동하거나, 원하는 다른 동작을 추가할 수 있습니다.
+    window.location.href = 'diary.html'; 
 });

@@ -1,0 +1,124 @@
+.glare-card {
+    --m-x: 50%;
+    --m-y: 50%;
+    --r-x: 0deg;
+    --r-y: 0deg;
+    --bg-x: 50%;
+    --bg-y: 50%;
+    --duration: 300ms;
+    --foil-size: 100%;
+    --opacity: 0;
+    --radius: 24px; /* 반지름 조정 */
+    --easing: ease;
+    --transition: var(--duration) var(--easing);
+    
+    position: relative;
+    isolation: isolate;
+    contain: layout style;
+    perspective: 600px;
+    transition: transform var(--duration) var(--easing);
+    will-change: transform;
+    width: 250px; /* 크기 조정 */
+    aspect-ratio: 1/1; /* 정사각형 비율 */
+}
+
+.glare-card-inner {
+    height: 100%;
+    display: grid;
+    will-change: transform;
+    transform-origin: center;
+    transition: transform var(--duration) var(--easing);
+    transform: rotateY(var(--r-x)) rotateX(var(--r-y));
+    border-radius: var(--radius);
+    overflow: hidden;
+}
+
+.glare-card-inner:hover {
+    --opacity: 0.6;
+    --duration: 200ms;
+    --easing: linear;
+    filter: none;
+}
+
+.card-content {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-area: 1/1;
+    clip-path: inset(0 0 0 0 round var(--radius));
+    /* 배경 제거 */
+    padding: 0; /* 패딩 제거 */
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.glare-layer {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-area: 1/1;
+    mix-blend-mode: soft-light;
+    clip-path: inset(0 0 1px 0 round var(--radius));
+    opacity: var(--opacity);
+    transition: opacity var(--duration) var(--easing);
+    will-change: background;
+    background: radial-gradient(
+        farthest-corner circle at var(--m-x) var(--m-y),
+        rgba(255,255,255,0.8) 10%,
+        rgba(255,255,255,0.65) 20%,
+        rgba(255,255,255,0) 90%
+    );
+}
+
+.foil-layer {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-area: 1/1;
+    mix-blend-mode: color-dodge;
+    opacity: var(--opacity);
+    will-change: background;
+    transition: opacity var(--duration) var(--easing);
+    clip-path: inset(0 0 1px 0 round var(--radius));
+    background-blend-mode: hue, hue, hue, overlay;
+    position: relative;
+}
+
+.foil-layer::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    mix-blend-mode: exclusion;
+    background-size: var(--foil-size), 200% 400%, 800%, 200%;
+    background-position: center, 0% var(--bg-y), calc(var(--bg-x) * -1) calc(var(--bg-y) * -1), var(--bg-x) var(--bg-y);
+    background-blend-mode: soft-light, hue, hard-light;
+}
+
+.card-title {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 16px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.card-description {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    opacity: 0.9;
+}
+
+.demo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 40px;
+    width: 100%;
+    max-width: 1200px;
+}

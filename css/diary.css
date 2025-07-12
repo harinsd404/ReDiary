@@ -5,23 +5,6 @@ body {
     width: 100%;
 }
 
-/* 뒤로가기 아이콘 */
-.icon {
-    position: fixed; 
-    top: 68px;
-    left: 88px;
-    z-index: 10;
-}
-.icon button {
-    background: none;
-    border: none;
-    cursor: pointer;
-}
-.icon svg{
-    width: 34px;
-    height: 20px;
-}
-
 /* main 영역 */
 .main{
     width: 720px;
@@ -172,4 +155,23 @@ h4 {
 }
 #sticker :hover{
     cursor: pointer;
+}
+
+/* 스티커 텍스트 스타일 */
+.sticker-text {
+    text-align: center;
+    color: white;
+    margin-top: 20px; /* 카드와의 간격 */
+}
+
+.sticker-text h3 {
+    font-family: "PF Stardust ExtraBold";
+    font-size: 24px;
+    margin: 0 0 10px 0;
+}
+
+.sticker-text p {
+    font-family: "PF Stardust";
+    font-size: 16px;
+    margin: 0;
 }
