@@ -2,6 +2,7 @@ let stickerList = JSON.parse(localStorage.getItem('stickerList')) || [
     {name:'clover', title:'행운의 네잎 클로버', hands: false},
     {name:'tomato', title:'행운의 토마토', hands: false},
     {name:'star', title:'행운의 별', hands: false},
+    {name:'cat', title:'행운의 고양이', hands: false},
     {name:'latte', title:'라떼', hands: false}
 ];
 
