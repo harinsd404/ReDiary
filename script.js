@@ -42,11 +42,22 @@ document.querySelector('.write').addEventListener('click', (e) => {
         dateData: date
     });
 
-    frm.title.value = '';
-    frm.contents.value = '';
-
     localStorage.setItem('diaryData', JSON.stringify(diaryData));
     console.log('저장된 데이터:', diaryData);
 
-    
+    document.getElementById('sticker').innerHTML = `
+        <img src="./assets/sticker/clover.png" alt="">
+        <div class="text">
+            <h3>행운의 네잎 클로버</h3>
+            <p>아무 곳이나 Tab</p>
+        </div>`;
+    document.getElementById('sticker').style.display = 'flex';
+});
+
+document.getElementById('sticker').addEventListener('click', ()=>{
+    document.getElementById('sticker').style.display = 'none';
+    history.back();
+
+    frm.title.value = '';
+    frm.contents.value = '';
 });

@@ -145,3 +145,31 @@ h4 {
     cursor: pointer;
     text-decoration: none; /* button 태그의 기본 밑줄 제거 */
 }
+
+#sticker {
+    position: fixed; /* 뷰포트 기준 고정 */
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 99;
+    flex-shrink: 0;
+    background: rgba(0, 0, 0, 0.40);
+    backdrop-filter: blur(2px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 28px;
+
+    color: #fff;
+    font-family: "PF Stardust";
+    display: none;
+}
+#sticker h3 {
+    color: #fff;
+    font-family: "PF Stardust ExtraBold";
+}
+#sticker :hover{
+    cursor: pointer;
+}
