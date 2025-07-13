@@ -1,0 +1,27 @@
+.icon {
+    display: flex;
+    flex-direction: row;
+    gap: 40px;
+}
+
+h4{
+    font-family: "PF Stardust ExtraBold";
+    font-size: 22px;
+}
+
+#main {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    height: 100vh; 
+    padding-top: 30vh;
+}
+#main img{
+    width: 210px;
+    height: auto;
+}
+#main p{
+    font-family: "PF Stardust";
+    text-align: center;
+}
