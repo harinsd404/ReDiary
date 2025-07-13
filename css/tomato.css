@@ -1,7 +1,18 @@
+* {
+    font-family: "PF Stardust";
+    color: #000;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+
+}
 .icon {
     display: flex;
     flex-direction: row;
     gap: 40px;
+    margin: 0;
 }
 
 h4{
@@ -24,4 +35,8 @@ h4{
 #main p{
     font-family: "PF Stardust";
     text-align: center;
+}
+
+.swal-button {
+    color: #000;
 }
